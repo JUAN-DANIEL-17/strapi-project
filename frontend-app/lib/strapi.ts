@@ -25,7 +25,12 @@ const QUERY_HOME_PAGE = {
 export async function getHomePage() {
   "use cache";
   const query = qs.stringify(QUERY_HOME_PAGE);
+  console.log("MANDANDO AL SERVER ");
+  console.log(query);
+  console.log(`/api/home-page?${query}`);
+  console.log("MANDANDO AL SERVER ");
   const response = await getStrapiData(`/api/home-page?${query}`);
+
   return response?.data;
 }
 

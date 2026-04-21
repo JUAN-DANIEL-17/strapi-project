@@ -12,12 +12,14 @@ export async function generateMetadata() {
 export default async function Home() {
   const strapiData = await getHomePage();
 
+  if (!strapiData) return <div>Error cargando datos...</div>;
+
   const [heroSections] = strapiData?.sections || [];
 
   return (
-    //<HeroSection data={heroSections} />
+    //<h1>LLEGASTE HASTA AQUI</h1>
     <main className="flex min-h-screen flex-col  p-12">
-      <h1>LLEGASTE HASTA AQUI</h1>
+      <HeroSection data={heroSections} />
     </main>
   );
 }

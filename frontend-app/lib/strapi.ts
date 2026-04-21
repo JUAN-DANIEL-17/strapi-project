@@ -1,4 +1,3 @@
-import { link } from "fs";
 import qs from "qs";
 
 export const STRAPI_BASE_URL =
@@ -37,6 +36,7 @@ export async function getStrapiData(url: string) {
       throw new Error(`HTTP Error status: ${response.statusText}`);
     }
     const data = await response.json();
+    console.log(data);
     return data;
   } catch (error) {
     console.error("Error en Strapi:", error);

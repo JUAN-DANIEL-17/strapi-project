@@ -1,5 +1,5 @@
-import { HeroSection } from "@/components/ui/hero-section";
 import { getHomePage } from "@/lib/strapi";
+import { HeroSection } from "@/components/ui/hero-section";
 
 export async function generateMetadata() {
   const strapiData = await getHomePage();
@@ -15,8 +15,9 @@ export default async function Home() {
   const [heroSections] = strapiData?.sections || [];
 
   return (
+    //<HeroSection data={heroSections} />
     <main className="flex min-h-screen flex-col  p-12">
-      <HeroSection data={heroSections} />
+      <h1>LLEGASTE HASTA AQUI</h1>
     </main>
   );
 }

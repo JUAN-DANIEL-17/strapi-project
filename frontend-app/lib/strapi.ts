@@ -29,7 +29,7 @@ export async function getHomePage() {
   return response?.data;
 }
 
-export async function getStrapiData(url: string) {
+/*export async function getStrapiData(url: string) {
   try {
     const response = await fetch(`${STRAPI_BASE_URL}${url}`);
     if (!response.ok) {
@@ -40,6 +40,22 @@ export async function getStrapiData(url: string) {
     return data;
   } catch (error) {
     console.error("Error en Strapi:", error);
+    return null;
+  }
+}
+*/
+export async function getStrapiData(url: string) {
+  console.log("getStrapiData");
+
+  try {
+    const response = await fetch(`${STRAPI_BASE_URL}${url}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
     return null;
   }
 }
